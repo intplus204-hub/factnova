@@ -1,0 +1,141 @@
+[
+{
+"id":1,
+"title":"The Hidden Secrets of the Universe",
+"category":"Space",
+"image":"assets/images/space.jpg",
+"description":"Discover amazing facts about galaxies, planets and the mysteries of space.",
+"author":"FactNova Team",
+"date":"2026-01-10",
+"readingTime":"5 min read",
+"tags":["space","universe","galaxy"],
+"content":"The universe contains billions of galaxies. Scientists continue exploring space to understand its biggest mysteries."
+},
+
+
+{
+"id":2,
+"title":"Animals With Incredible Abilities",
+"category":"Animals",
+"image":"assets/images/animals.jpg",
+"description":"Meet animals with extraordinary skills that look impossible.",
+"author":"FactNova Team",
+"date":"2026-01-12",
+"readingTime":"4 min read",
+"tags":["animals","nature"],
+"content":"Many animals developed unique abilities to survive in extreme environments."
+},
+
+
+{
+"id":3,
+"title":"The Human Brain Amazing Facts",
+"category":"Science",
+"image":"assets/images/brain.jpg",
+"description":"Interesting discoveries about the most complex organ.",
+"author":"FactNova Team",
+"date":"2026-01-15",
+"readingTime":"6 min read",
+"tags":["brain","science"],
+"content":"The human brain remains one of the biggest mysteries studied by scientists."
+},
+
+
+{
+"id":4,
+"title":"Lost Civilizations That Changed History",
+"category":"History",
+"image":"assets/images/history.jpg",
+"description":"Explore forgotten civilizations and their achievements.",
+"author":"FactNova Team",
+"date":"2026-01-18",
+"readingTime":"7 min read",
+"tags":["history","civilizations"],
+"content":"Ancient civilizations created inventions that influenced modern society."
+},
+
+
+{
+"id":5,
+"title":"The Deepest Places On Earth",
+"category":"Science",
+"image":"assets/images/ocean.jpg",
+"description":"Discover places on Earth that remain unexplored.",
+"author":"FactNova Team",
+"date":"2026-01-20",
+"readingTime":"5 min read",
+"tags":["earth","science"],
+"content":"Some areas of our planet are still unknown to humans."
+},
+
+
+{
+"id":6,
+"title":"Amazing Facts About Octopus",
+"category":"Animals",
+"image":"assets/images/octopus.jpg",
+"description":"The octopus is one of the smartest sea creatures.",
+"author":"FactNova Team",
+"date":"2026-01-22",
+"readingTime":"4 min read",
+"tags":["octopus","sea"],
+"content":"Octopuses have remarkable intelligence and unique survival strategies."
+},
+
+
+{
+"id":7,
+"title":"Black Holes Explained",
+"category":"Space",
+"image":"assets/images/blackhole.jpg",
+"description":"Understanding one of the universe's biggest mysteries.",
+"author":"FactNova Team",
+"date":"2026-01-25",
+"readingTime":"6 min read",
+"tags":["space","black hole"],
+"content":"Black holes are regions where gravity is extremely powerful."
+},
+
+
+{
+"id":8,
+"title":"The History Of Ancient Egypt",
+"category":"History",
+"image":"assets/images/egypt.jpg",
+"description":"Secrets behind one of the greatest civilizations.",
+"author":"FactNova Team",
+"date":"2026-01-28",
+"readingTime":"8 min read",
+"tags":["egypt","history"],
+"content":"Ancient Egypt left a huge impact on architecture and culture."
+},
+
+
+{
+"id":9,
+"title":"Robots And The Future",
+"category":"Science",
+"image":"assets/images/robot.jpg",
+"description":"How technology is changing our world.",
+"author":"FactNova Team",
+"date":"2026-02-01",
+"readingTime":"5 min read",
+"tags":["robot","technology"],
+"content":"Robotics and artificial intelligence are transforming many industries."
+},
+
+
+{
+"id":10,
+"title":"Mysteries Of The Deep Ocean",
+"category":"Animals",
+"image":"assets/images/deepsea.jpg",
+"description":"Unknown creatures living in the ocean depths.",
+"author":"FactNova Team",
+"date":"2026-02-05",
+"readingTime":"5 min read",
+"tags":["ocean","animals"],
+"content":"The deep ocean contains thousands of species waiting to be discovered."
+}
+
+]
