@@ -1,0 +1,136 @@
+:root {
+  --primary: #2563eb;
+  --accent: #ef4444;
+  --bg-color: #f8fafc;
+  --text-color: #111827;
+  --text-muted: #4b5563;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --radius: 12px;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --transition: all 0.3s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: var(--transition);
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+
+.logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--primary); }
+.logo span { color: var(--accent); }
+
+.main-nav ul { display: flex; list-style: none; gap: 1.5rem; }
+.main-nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; }
+.main-nav a:hover, .main-nav a.active { color: var(--primary); }
+
+.controls { display: flex; gap: 0.5rem; }
+
+.btn-icon {
+  background: none; border: none; cursor: pointer; color: var(--text-color);
+  width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; transition: var(--transition);
+}
+.btn-icon:hover { background-color: var(--border-color); }
+
+/* Hero Card */
+.hero-sec { margin: 2rem 0; }
+.hero-card {
+  display: grid; grid-template-columns: 1.2fr 1fr; background-color: var(--card-bg);
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: var(--transition);
+}
+.hero-card:hover { transform: translateY(-4px); }
+.hero-image-wrapper { height: 350px; overflow: hidden; }
+.hero-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.hero-content { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+
+.badge {
+  align-self: flex-start; background-color: rgba(37, 99, 235, 0.1); color: var(--primary);
+  padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem;
+}
+
+.hero-title { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 800; }
+.hero-desc { color: var(--text-muted); margin-bottom: 1.5rem; }
+.meta-info { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-muted); }
+
+/* Grid Cards */
+.grid-section-header { margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+.section-title { font-size: 1.4rem; font-weight: 800; }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+
+.article-card {
+  background-color: var(--card-bg); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); display: flex; flex-direction: column; cursor: pointer; transition: var(--transition);
+}
+.article-card:hover { transform: translateY(-4px); }
+.card-img-wrapper { aspect-ratio: 16/10; overflow: hidden; }
+.card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.card-content { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; }
+.card-title { font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 700; }
+.card-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
+.card-meta {
+  margin-top: auto; display: flex; justify-content: space-between; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 0.75rem;
+}
+/* تنسيق السهم الجديد */
+.back-home-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.back-home-btn:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+
+
+/* إخفاء السهم في الصفحة الرئيسية (اختياري) */
+/* إلا بغيتيه يبان غير فصفحات المقالات والتصنيفات، زيد هاد السطر: */
+/* .home-page .back-home-btn { display: none; } */
+/* تنسيق زر السهم للرجوع للرئيسية */
+.back-home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+}
+
+.back-home-btn:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+  transform: translateX(3px); /* حركة تفاعلية خفيفة لليسار فـ RTL */
+}
+
+/* التوافق مع الوضع المظلم */
+[data-theme="dark"] .back-home-btn {
+  color: #f8fafc;
+}

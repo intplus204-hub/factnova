@@ -1,173 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>FactNova - Amazing Facts About Everything</title>
-
-<meta name="description" content="Discover amazing facts about animals, space, science, history and mysterious places.">
-
-<meta property="og:title" content="FactNova">
-<meta property="og:description" content="Explore the world's most fascinating facts.">
-<meta property="og:type" content="website">
-
-<link rel="icon" href="assets/favicon.png">
-
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/responsive.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FactNov - الرئيسية</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
 </head>
-
-
 <body>
-
-
-<!-- HEADER -->
-<div id="header"></div>
-
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<span class="category">
-Science
-</span>
-
-<h1>
-The Most Amazing Discoveries That Changed Our World
-</h1>
-
-<p>
-Explore incredible facts, scientific discoveries and mysteries from around the planet.
-</p>
-
-<a href="article.html?id=1" class="btn">
-Read Article
-</a>
-
-</div>
-
-
-<div class="hero-image">
-
-<img src="assets/images/hero.jpg" alt="FactNova featured article">
-
-</div>
-
-
-</section>
-
-
-
-<!-- TRENDING -->
-
-<section class="container">
-
-<h2>
-Trending Articles
-</h2>
-
-
-<div id="trending" class="articles-grid"></div>
-
-
-</section>
-
-
-
-<!-- CATEGORIES -->
-
-
-<section class="container categories">
-
-
-<h2>
-Explore Categories
-</h2>
-
-
-<div class="category-grid">
-
-
-<a href="category.html?cat=Animals">
-Animals
-</a>
-
-
-<a href="category.html?cat=Space">
-Space
-</a>
-
-
-<a href="category.html?cat=Science">
-Science
-</a>
-
-
-<a href="category.html?cat=History">
-History
-</a>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- NEWSLETTER -->
-
-<section class="newsletter">
-
-
-<h2>
-Join FactNova Newsletter
-</h2>
-
-
-<p>
-Receive amazing facts every week.
-</p>
-
-
-<form>
-
-<input 
-type="email" 
-placeholder="Your email">
-
-
-<button>
-Subscribe
-</button>
-
-
-</form>
-
-
-</section>
-
-
-
-
-<!-- FOOTER -->
-
-<div id="footer"></div>
-
-
-
-<script src="js/app.js"></script>
-
-
+  <header>
+    <div class="container header-inner">
+      <div class="logo-wrapper" style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" class="back-home-btn" aria-label="الرجوع للرئيسية">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg);">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </a>
+        <a href="index.html" class="logo">Fact<span>Nov</span></a>
+      </div>
+      
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">الرئيسية</a></li>
+          <li><a href="category.html?category=technology">تقنية</a></li>
+          <li><a href="category.html?category=ai">ذكاء اصطناعي</a></li>
+          <li><a href="category.html?category=business">مال وأعمال</a></li>
+          <li><a href="category.html?category=health">صحة</a></li>
+        </ul>
+      </nav>
+      <div class="controls" style="display: flex; align-items: center; gap: 0.75rem;">
+        <button class="btn-icon" id="dark-mode-toggle" aria-label="تغيير المظهر"></button>
+        <button class="btn-icon" onclick="location.href='search.html'" aria-label="البحث">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="فتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+<div class="site-intro-box" style="margin-top: 2rem; margin-bottom: 2rem; text-align: center; padding: 1.5rem; border-bottom: 1px solid var(--border-color);">
+    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-color); margin-bottom: 0.5rem;">مرحباً بك في <span style="color: var(--primary);">Fact</span><span style="color: #d90808;">Nov</span></h2>
+    <p style="font-size: 1.05rem; color: var(--text-muted-color, #888); max-width: 600px; margin: 0 auto; line-height: 1.6;">
+      منصتك الأولى لاكتشاف آخر الأخبار التقنية، أسرار الذكاء الاصطناعي، ونصائح حصرية لتطوير مهاراتك اليومية.
+    </p>
+  </div>
+  <main class="container">
+    <section class="hero-sec" id="hero-sec-target"></section>
+    <section style="margin-top: 3rem;">
+      <div class="grid-section-header">
+        <h2 class="section-title">أحدث المقالات المتاحة</h2>
+      </div>
+      <div class="articles-grid" id="latest-articles-target"></div>
+    </section>
+  </main>
+
+  <script src="assets/js/articles.js"></script>
+  <script src="assets/js/darkmode.js"></script>
+  <script src="assets/js/app.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. تفعيل زر القائمة (Hamburger Menu) مباشرة لحل مشكلة عدم استجابته
+      const hamburger = document.getElementById('hamburger');
+      const mainNav = document.getElementById('main-nav');
+      
+      if (hamburger && mainNav) {
+        // نضمن إزالة أي Event Listener قديم تفادياً للتعارض وتفعيل كليك مباشر
+        hamburger.onclick = () => {
+          hamburger.classList.toggle('active');
+          mainNav.classList.toggle('active');
+        };
+      }
+
+      // 2. جلب المقالات وعرضها بالصفحة الرئيسية
+      try {
+        const articles = await ArticleEngine.fetchAll();
+        if (articles.length === 0) return;
+
+        const featured = articles.find(a => a.featured) || articles[0];
+        const heroTarget = document.getElementById('hero-sec-target');
+        if (heroTarget) {
+          heroTarget.innerHTML = `
+            <div class="hero-card fade-in" onclick="location.href='article.html?id=${featured.id}'">
+              <div class="hero-image-wrapper">
+                <img src="${featured.image}" alt="${featured.title}" onerror="this.onerror=null; this.src='assets/images/default.webp';">
+              </div>
+              <div class="hero-content">
+                <span class="badge">${featured.category}</span>
+                <h1 class="hero-title">${featured.title}</h1>
+                <p class="hero-desc">${featured.description}</p>
+                <div class="meta-info">
+                  <span>الكاتب: ${featured.author}</span>
+                  <span>•</span>
+                  <span>${featured.readTime}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        const gridTarget = document.getElementById('latest-articles-target');
+        if (gridTarget) {
+          gridTarget.innerHTML = ""; // تصفية الديف قبل التعبئة
+          articles.forEach(art => {
+            gridTarget.innerHTML += ArticleEngine.createCardHTML(art);
+          });
+        }
+      } catch (error) {
+        console.error("خطأ أثناء تعبئة المقالات بالرئيسية:", error);
+      }
+    });
+  </script>
+
+  <footer>
+    <div class="container footer-inner" style="display: flex; justify-content: space-between; align-items: center; padding: 2rem 0; border-top: 1px solid var(--border-color); margin-top: 4rem; flex-wrap: wrap; gap: 1rem;">
+      <p class="text-muted" style="margin: 0; font-size: 0.9rem; color: var(--text-muted-color, #888);">© 2026 FactNov. جميع الحقوق محفوظة.</p>
+      
+      <div class="footer-links" style="display: flex; gap: 1.5rem;">
+        <a href="about.html" class="footer-link">من نحن</a>
+        <a href="contact.html" class="footer-link">اتصل بنا</a>
+        <a href="privacy.html" class="footer-link">سياسة الخصوصية</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* تنسيق روابط الفوتر مع التفاعل */
+    .footer-link {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    .footer-link:hover {
+      color: var(--primary);
+    }
+    /* متجاوب مع شاشات الموبايل */
+    @media (max-width: 500px) {
+      .footer-inner {
+        flex-direction: column !important;
+        text-align: center;
+        justify-content: center !important;
+      }
+      .footer-links {
+        justify-content: center;
+      }
+    }
+  </style>
 </body>
-
 </html>

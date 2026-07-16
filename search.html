@@ -1,144 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ar" dir="rtl">
 <head>
-
-<meta charset="UTF-8">
-
-<title>Search | FactNova</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>البحث - FactNov</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/dark.css">
 </head>
-
-
 <body>
-
-
-<div id="header"></div>
-
-
-
-<main class="container">
-
-
-<h1>
-Search Articles
-</h1>
-
-
-<input 
-id="searchInput"
-placeholder="Search facts..."
-style="padding:15px;width:100%;margin:20px 0;">
-
-
-
-<div id="results" class="articles-grid"></div>
-
-
-
-</main>
-
-
-
-<div id="footer"></div>
-
-
-
-<script src="js/app.js"></script>
-
-
-<script>
-
-
-async function searchArticles(){
-
-
-const response=
-await fetch("data/articles.json");
-
-
-const articles=
-await response.json();
-
-
-
-const input=
-document.querySelector("#searchInput");
-
-
-
-const results=
-document.querySelector("#results");
-
-
-
-function show(value){
-
-
-const data=
-articles.filter(a=>
-
-a.title.toLowerCase()
-.includes(value.toLowerCase())
-
-);
-
-
-
-results.innerHTML=data.map(article=>`
-
-
-<div class="card">
-
-
-<img src="${article.image}">
-
-
-<div class="card-content">
-
-
-<h3>
-${article.title}
-</h3>
-
-
-<a class="btn"
-href="article.html?id=${article.id}">
-Read
-</a>
-
-
-</div>
-
-
-</div>
-
-
-`).join("");
-
-}
-
-
-input.addEventListener(
-"input",
-()=>show(input.value)
-);
-
-
-show("");
-
-}
-
-
-
-searchArticles();
-
-
-</script>
-
-
+  <header>
+    <div class="container header-inner">
+      <!-- اللوكو والسهم مقاد ومجموعين -->
+      <div class="logo-wrapper" style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" class="back-home-btn" aria-label="الرجوع للرئيسية">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg);">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </a>
+        <a href="index.html" class="logo">Fact<span>Nov</span></a>
+      </div>
+
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="category.html?category=technology">تقنية</a></li>
+          <li><a href="category.html?category=ai">ذكاء اصطناعي</a></li>
+          <li><a href="category.html?category=business">مال وأعمال</a></li>
+          <li><a href="category.html?category=health">صحة</a></li>
+        </ul>
+      </nav>
+      <div class="controls" style="display: flex; align-items: center; gap: 0.75rem;">
+        <button class="btn-icon" id="dark-mode-toggle" aria-label="تغيير المظهر"></button>
+        <button class="btn-icon" onclick="location.href='search.html'" aria-label="البحث" style="color: var(--primary);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="فتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: 3rem; min-height: 70vh;">
+    <div style="max-width: 500px; margin: 0 auto 2rem;">
+      <input type="text" id="search-input" placeholder="ابحث هنا عن المقالات..." style="width: 100%; padding: 0.9rem 1.2rem; border-radius: var(--radius); border: 2px solid var(--border-color); outline: none; font-size: 1.1rem; background: var(--card-bg); color: var(--text-color);" autofocus>
+    </div>
+
+    <div class="grid-section-header">
+      <h2 class="section-title">نتائج المطابقة</h2>
+    </div>
+
+    <div class="articles-grid" id="search-results-target">
+      <p class="text-muted">اكتب كلمات مفتاحية لبدء الفحص والبحث الفوري...</p>
+    </div>
+  </main>
+
+  <script src="assets/js/articles.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/darkmode.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const articles = await ArticleEngine.fetchAll();
+      const input = document.getElementById('search-input');
+      const target = document.getElementById('search-results-target');
+      if (articles.length > 0 && input && target) {
+        SearchEngine.init(articles, input, target);
+      }
+    });
+  </script>
+  <script src="assets/js/articles.js"></script>
+  <script src="assets/js/darkmode.js"></script>
+  <script src="assets/js/app.js"></script> 
+  <footer>
+  <div class="container footer-inner" style="display: flex; justify-content: space-between; align-items: center; padding: 2rem 0; border-top: 1px solid var(--border-color); margin-top: 4rem; flex-wrap: wrap; gap: 1rem;">
+    <p class="text-muted" style="margin: 0; font-size: 0.9rem; color: var(--text-muted-color, #888);">© 2026 FactNov. جميع الحقوق محفوظة.</p>
+    
+    <div class="footer-links" style="display: flex; gap: 1.5rem;">
+      <a href="about.html" class="footer-link">من نحن</a>
+      <a href="contact.html" class="footer-link">اتصل بنا</a>
+      <a href="privacy.html" class="footer-link">سياسة الخصوصية</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* تنسيق روابط الفوتر مع التفاعل */
+  .footer-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+  .footer-link:hover {
+    color: var(--primary); /* كيولي باللون الأساسي ديال الموقع فاش يدوز عليه الفأرة */
+  }
+  /* متجاوب مع شاشات الموبايل */
+  @media (max-width: 500px) {
+    .footer-inner {
+      flex-direction: column !important;
+      text-align: center;
+      justify-content: center !important;
+    }
+    .footer-links {
+      justify-content: center;
+    }
+  }
+</style>
 </body>
-
 </html>

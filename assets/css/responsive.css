@@ -1,0 +1,140 @@
+/* ==========================================
+   تنسيقات الشاشات الصغيرة (الهواتف)
+   ========================================== */
+@media (max-width: 768px) {
+  
+  /* إخفاء القائمة الأفقية العادية */
+  .main-nav {
+    position: fixed;
+    top: 70px;
+    right: -100%; /* مخفية تماماً خارج الشاشة على اليمين */
+    width: 260px;
+    height: calc(100vh - 70px);
+    background-color: var(--card-bg);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2.5rem 1.5rem;
+    z-index: 1000;
+  }
+
+  /* إدخال القائمة بسلاسة للشاشة عند الضغط */
+  .main-nav.active {
+    right: 0;
+  }
+
+  /* تحويل روابط القائمة لترتيب عمودي مريح */
+  .main-nav ul {
+    flex-direction: column;
+    gap: 2rem !important;
+    align-items: flex-start;
+  }
+
+  .main-nav a {
+    font-size: 1.15rem;
+    font-weight: 700;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* زر الثلاث شرطات (Hamburger Menu) */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0;
+    outline: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  /* حركة تحول الأشرطة الـ 3 إلى علامة إغلاق (X) عند التفعيل */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* تعديلات المقال المميز (Hero Card) فالموبايل */
+  .hero-card {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .hero-image-wrapper {
+    height: 220px !important;
+  }
+  
+  .hero-content {
+    padding: 1.5rem !important;
+  }
+  
+  .hero-title {
+    font-size: 1.4rem !important;
+  }
+}
+
+/* ==========================================
+   تنسيقات الشاشات الكبيرة (الكمبيوتر)
+   ========================================== */
+@media (min-width: 769px) {
+  /* إخفاء زر الشرطات فالحاسوب حيت القائمة ديجا باينة */
+  .hamburger {
+    display: none;
+  }
+}
+/* حل مشكلة تلاتة د الشرطات وتناسق المنيو فالموبايل */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* إخفاء تلقائي */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    z-index: 999;
+  }
+
+  /* إظهار القائمة ملي كتكون active */
+  .main-nav.active {
+    display: block !important;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1.5rem;
+  }
+
+  /* تحويل الشرطات لعلامة X عند الفتح */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
