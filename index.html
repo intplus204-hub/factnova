@@ -12,6 +12,17 @@
 <body>
   <header>
     <div class="container header-inner">
+      <script>
+  atOptions = {
+    'key' : '374a60ede88dad103ca5ffb958645647',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/374a60ede88dad103ca5ffb958645647/invoke.js"></script>
+
       <div class="logo-wrapper" style="display: flex; align-items: center; gap: 8px;">
         <a href="index.html" class="back-home-btn" aria-label="الرجوع للرئيسية">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg);">
@@ -66,12 +77,11 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
-      // 1. تفعيل زر القائمة (Hamburger Menu) مباشرة لحل مشكلة عدم استجابته
+      // 1. تفعيل زر القائمة (Hamburger Menu)
       const hamburger = document.getElementById('hamburger');
       const mainNav = document.getElementById('main-nav');
       
       if (hamburger && mainNav) {
-        // نضمن إزالة أي Event Listener قديم تفادياً للتعارض وتفعيل كليك مباشر
         hamburger.onclick = () => {
           hamburger.classList.toggle('active');
           mainNav.classList.toggle('active');
@@ -108,15 +118,29 @@
         const gridTarget = document.getElementById('latest-articles-target');
         if (gridTarget) {
           gridTarget.innerHTML = ""; // تصفية الديف قبل التعبئة
-          articles.forEach(art => {
+          
+          articles.forEach((art, index) => {
+            // إضافة المقال الحالي
             gridTarget.innerHTML += ArticleEngine.createCardHTML(art);
+
+            // إضافة الإعلان بعد كل 5 مقالات
+            // إضافة الإعلان بعد كل 5 مقالات
+if ((index + 1) % 5 === 0) {
+  const adHTML = `
+    <div class="ad-container" style="text-align: center; margin: 20px 0; width: 100%;">
+       <script async="async" data-cfasync="false" src="https://pl30406455.effectivecpmnetwork.com/f1ea70a226eca110d7b804890f40b290/invoke.js"><\/script>
+<div id="container-f1ea70a226eca110d7b804890f40b290"></div>
+    </div>
+  `;
+  gridTarget.insertAdjacentHTML('beforeend', adHTML);
+}
           });
         }
       } catch (error) {
         console.error("خطأ أثناء تعبئة المقالات بالرئيسية:", error);
       }
     });
-  </script>
+</script>
 
   <footer>
     <div class="container footer-inner" style="display: flex; justify-content: space-between; align-items: center; padding: 2rem 0; border-top: 1px solid var(--border-color); margin-top: 4rem; flex-wrap: wrap; gap: 1rem;">
@@ -129,7 +153,19 @@
       </div>
     </div>
   </footer>
+<div class="ad-container" style="text-align: center; margin: 30px 0;">
+   <script>
+  atOptions = {
+    'key' : 'e23e4ba9f1f85d1d54d36d4e20bc1094',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/e23e4ba9f1f85d1d54d36d4e20bc1094/invoke.js"></script>
 
+</div>
   <style>
     /* تنسيق روابط الفوتر مع التفاعل */
     .footer-link {
@@ -153,5 +189,8 @@
       }
     }
   </style>
+  <script src="https://pl30406452.effectivecpmnetwork.com/a4/bc/1c/a4bc1c97108eec4d9f546ca31b149c77.js"></script>
+<script src="https://pl30406453.effectivecpmnetwork.com/a0/9d/2d/a09d2d2cc92f344b801cc4735961b0c4.js"></script>
+
 </body>
 </html>

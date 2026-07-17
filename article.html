@@ -113,6 +113,14 @@
 
       <!-- هنا كينزل المحتوى الطويل (الـ content) -->
       <div id="article-content" class="article-body"></div>
+      <!-- كود الزر الأزرق -->
+       <div style="text-align: center; margin: 20px 0;">
+      <a href="https://www.effectivecpmnetwork.com/i4g0ebw3?key=a0329c5123ad32edce5af4d7e6124615" 
+   target="_blank" 
+   style="display: inline-block; background-color: #007bff; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; font-family: Arial, sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.3s ease;">
+   اضغط هنا للمزيد
+</a></div>
+
     </article>
 
     <!-- قسم المقالات المشابهة -->
@@ -131,62 +139,65 @@
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
       try {
-        // 1. نجيبو الـ id من الرابط
         const urlParams = new URLSearchParams(window.location.search);
         const articleId = urlParams.get('id');
-
-        if (!articleId) {
-          document.getElementById('article-title').innerText = "عذراً، لم يتم تحديد المقال!";
-          return;
-        }
-
-        // 2. نجيبو كاع المقالات من نفس السورس اللي خدام فـ الرئيسية
         const articles = await ArticleEngine.fetchAll();
-
-        // 3. نقلبو على المقال المطابق للـ id
         const article = articles.find(art => art.id === articleId);
 
         if (article) {
-          // 4. نعمرو عناصر الصفحة تلقائياً بالمعلومات
-          document.title = `${article.title} - FactNov`;
           document.getElementById('article-title').innerText = article.title;
           document.getElementById('article-category').innerText = article.category;
-          document.getElementById('article-author').innerText = article.author;
-          document.getElementById('article-date').innerText = article.date;
           document.getElementById('article-image').src = article.image;
-          document.getElementById('article-image').alt = article.title;
-          
-          // نزلوا المحتوى الطويل (الـ content)
-          document.getElementById('article-content').innerHTML = article.content;
 
-          // 5. جلب وعرض المقالات المشابهة تلقائياً
-          const relatedTarget = document.getElementById('related-articles-target');
-          if (relatedTarget) {
-            // كنجيبو المقالات اللي عندها نفس القسم وبلا المقال اللي محلول دابا
-            const relatedArticles = articles.filter(art => art.category === article.category && art.id !== article.id);
+          // 1. كود البانر العادي (الفوق والتحت)
+          const adCode = `
+            <div style="text-align: center; margin: 30px 0;">
+               <script>
+  atOptions = {
+    'key' : '374a60ede88dad103ca5ffb958645647',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/374a60ede88dad103ca5ffb958645647/invoke.js"><\/script>
 
-            if (relatedArticles.length > 0) {
-              relatedTarget.innerHTML = "";
-              relatedArticles.forEach(related => {
-                relatedTarget.innerHTML += ArticleEngine.createCardHTML(related);
-              });
-            } else {
-              // يلا ملقاش مقالات فـ نفس القسم، كيعرض مقالات أخرى باش متبقاش البلاصة خاوية
-              const alternativeArticles = articles.filter(art => art.id !== article.id).slice(0, 3);
-              relatedTarget.innerHTML = "";
-              alternativeArticles.forEach(altArt => {
-                relatedTarget.innerHTML += ArticleEngine.createCardHTML(altArt);
-              });
+            </div>
+          `;
+
+          // 2. كود الـ Native Banner (الوسط)
+          const nativeCode = `
+            <div style="text-align: center; margin: 30px 0;">
+             <script async="async" data-cfasync="false" src="https://pl30406455.effectivecpmnetwork.com/f1ea70a226eca110d7b804890f40b290/invoke.js"><\/script>
+<div id="container-f1ea70a226eca110d7b804890f40b290"></div>
+
+            </div>
+          `;
+
+          // منطق الدمج:
+          // كنشدو محتوى المقال وكنزيدو عليه الإعلانات بلا ما نغيرو كود الـ HTML ديال الصفحة
+          const paragraphs = article.content.split('</p>');
+          let finalContent = adCode; // بانر الفوق
+
+          paragraphs.forEach((p, index) => {
+            finalContent += p + '</p>';
+            // إضافة الـ Native Banner فالوسط بعد الفقرة الثانية
+            if (index === 1) {
+              finalContent += nativeCode;
             }
-          }
-        } else {
-          document.getElementById('article-title').innerText = "المقال غير موجود!";
+          });
+
+          finalContent += adCode; // بانر التحت
+          
+          // هنا كنحطو المحتوى الجديد (المقال + الإعلانات) في الديف ديالو
+          document.getElementById('article-content').innerHTML = finalContent;
         }
       } catch (error) {
-        console.error("خطأ أثناء عرض المحتوى والمقالات المشابهة:", error);
+        console.error("خطأ أثناء تحميل المقال أو الإعلانات:", error);
       }
     });
-  </script>
+</script>
 
   <footer>
     <div class="container footer-inner" style="display: flex; justify-content: space-between; align-items: center; padding: 2rem 0; border-top: 1px solid var(--border-color); margin-top: 4rem; flex-wrap: wrap; gap: 1rem;">
