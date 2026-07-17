@@ -3,4 +3,4 @@ Allow: /
 Disallow: /assets/css/
 Disallow: /assets/js/
 
-Sitemap: https://factnov.com/sitemap.xml
+Sitemap: https://factnova.netlify.app/sitemap.xml
