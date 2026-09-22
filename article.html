@@ -1,72 +1,541 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FactNov - تفاصيل المقال</title>
+
+  <title>FactNova - تفاصيل المقال</title>
+
   <link rel="stylesheet" href="assets/css/style.css">
+
   <style>
-    .article-container { max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; }
-    .article-body { line-height: 1.9; font-size: 1.15rem; color: var(--text-color); }
-    .ad-wrapper { text-align: center; margin: 30px 0; min-height: 50px; }
+    .article-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .article-body {
+      line-height: 1.9;
+      font-size: 1.15rem;
+      color: var(--text-color);
+    }
+
+    .ad-wrapper {
+      text-align: center;
+      margin: 30px 0;
+      min-height: 50px;
+    }
+
+    /* =========================
+       زر قراءة المزيد
+    ========================== */
+
+    .more-link-wrapper {
+      text-align: center;
+      margin: 35px 0 15px;
+    }
+
+    .more-link {
+      display: inline-block;
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.2s ease;
+    }
+
+    .more-link:hover {
+      background-color: #0056b3;
+    }
+
+    /* =========================
+       زر نسخ رابط المقال
+    ========================== */
+
+    .copy-link-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0 40px;
+    }
+
+    #copyArticleLink {
+      border: none;
+      background: #111827;
+      color: #ffffff;
+      padding: 13px 25px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    #copyArticleLink:hover {
+      background: #2563eb;
+    }
+
+    #copyArticleLink:active {
+      transform: scale(0.96);
+    }
+
+    #copyArticleLink.success {
+      background: #16a34a;
+    }
+
+    #copyArticleLink.error {
+      background: #dc2626;
+    }
   </style>
 </head>
+
+
 <body>
 
-  <!-- المحتوى ديالك -->
+  <!-- =========================
+       المحتوى الرئيسي
+  ========================== -->
+
   <main class="container">
+
     <article class="article-container">
-      <h1 id="article-title">جاري تحميل المقال...</h1>
-      
-      <!-- إعلان بانر الفوق -->
+
+      <!-- عنوان المقال -->
+
+      <h1 id="article-title">
+        جاري تحميل المقال...
+      </h1>
+
+
+      <!-- =========================
+           إعلان البانر الفوق
+      ========================== -->
+
       <div class="ad-wrapper">
-        <script>atOptions = {'key' : '374a60ede88dad103ca5ffb958645647', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {}};</script>
-        <script src="https://www.highperformanceformat.com/374a60ede88dad103ca5ffb958645647/invoke.js"></script>
+
+        <script>
+          atOptions = {
+            'key': '374a60ede88dad103ca5ffb958645647',
+            'format': 'iframe',
+            'height': 50,
+            'width': 320,
+            'params': {}
+          };
+        </script>
+
+        <!-- كود إعلان البانر هنا -->
+
+
       </div>
 
-      <div id="article-content" class="article-body"></div>
 
-      <!-- بلاصة الإعلان الوسطي (Native) -->
-      <div id="native-ad-spot" class="ad-wrapper"></div>
+      <!-- =========================
+           محتوى المقال
+      ========================== -->
 
-      <!-- الزر -->
-      <div style="text-align: center; margin: 40px 0;">
-        <a href="https://www.effectivecpmnetwork.com/i4g0ebw3?key=a0329c5123ad32edce5af4d7e6124615" 
-           style="background-color: #007bff; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold;">
-           اضغط هنا للمزيد
+      <div
+        id="article-content"
+        class="article-body">
+      </div>
+
+
+      <!-- =========================
+           الإعلان الوسطي
+      ========================== -->
+
+      <div
+        id="native-ad-spot"
+        class="ad-wrapper">
+      </div>
+
+
+      <!-- =========================
+           قراءة المزيد
+      ========================== -->
+
+      <div class="more-link-wrapper">
+
+        <a
+          href="index.html"
+          class="more-link">
+
+          قراءة المزيد
+
         </a>
+
       </div>
+
+
+      <!-- =========================
+           نسخ رابط المقال
+      ========================== -->
+
+      <div class="copy-link-wrapper">
+
+        <button
+          id="copyArticleLink"
+          type="button">
+
+          🔗 نسخ رابط المقال
+
+        </button>
+
+      </div>
+
     </article>
+
   </main>
 
+
+  <!-- =========================
+       ملفات JavaScript
+  ========================== -->
+
   <script src="assets/js/articles.js"></script>
+
   <script src="assets/js/app.js"></script>
 
+
+  <!-- =========================
+       تحميل المقال
+  ========================== -->
+
   <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const articleId = urlParams.get('id');
-      const articles = await ArticleEngine.fetchAll();
-      const article = articles.find(art => art.id === articleId);
 
-      if (article) {
-        document.getElementById('article-title').innerText = article.title;
-        document.getElementById('article-content').innerHTML = article.content;
+    document.addEventListener(
+      'DOMContentLoaded',
+      async function () {
 
-        // حقن إعلان Native بطريقة آمنة
-        const nativeAdSpot = document.getElementById('native-ad-spot');
-        const script = document.createElement('script');
-        script.src = "https://pl30406455.effectivecpmnetwork.com/f1ea70a226eca110d7b804890f40b290/invoke.js";
-        script.setAttribute('data-cfasync', 'false');
-        script.async = true;
-        
-        const container = document.createElement('div');
-        container.id = "container-f1ea70a226eca110d7b804890f40b290";
-        
-        nativeAdSpot.appendChild(script);
-        nativeAdSpot.appendChild(container);
+        try {
+
+          /* الحصول على ID المقال */
+
+          const urlParams =
+            new URLSearchParams(
+              window.location.search
+            );
+
+          const articleId =
+            urlParams.get('id');
+
+
+          /* جلب المقالات */
+
+          const articles =
+            await ArticleEngine.fetchAll();
+
+
+          /* البحث عن المقال */
+
+          const article =
+            articles.find(function (art) {
+
+              return String(art.id) ===
+                     String(articleId);
+
+            });
+
+
+          /* =========================
+             المقال موجود
+          ========================== */
+
+          if (article) {
+
+            /* عنوان المقال */
+
+            document.getElementById(
+              'article-title'
+            ).innerText =
+              article.title;
+
+
+            /* محتوى المقال */
+
+            document.getElementById(
+              'article-content'
+            ).innerHTML =
+              article.content;
+
+
+            /* =========================
+               الإعلان Native
+            ========================== */
+
+            const nativeAdSpot =
+              document.getElementById(
+                'native-ad-spot'
+              );
+
+
+            const script =
+              document.createElement(
+                'script'
+              );
+
+
+            script.setAttribute(
+              'data-cfasync',
+              'false'
+            );
+
+
+            script.async = true;
+
+
+            const container =
+              document.createElement(
+                'div'
+              );
+
+
+            container.id =
+              'container-f1ea70a226eca110d7b804890f40b290';
+
+
+            nativeAdSpot.appendChild(
+              script
+            );
+
+
+            nativeAdSpot.appendChild(
+              container
+            );
+
+          }
+
+
+          /* =========================
+             المقال غير موجود
+          ========================== */
+
+          else {
+
+            document.getElementById(
+              'article-title'
+            ).innerText =
+              'المقال غير موجود';
+
+
+            document.getElementById(
+              'article-content'
+            ).innerHTML =
+              '<p>عذراً، لم يتم العثور على هذا المقال.</p>';
+
+          }
+
+
+        }
+
+        /* =========================
+           خطأ
+        ========================== */
+
+        catch (error) {
+
+          console.error(
+            'Article loading error:',
+            error
+          );
+
+
+          document.getElementById(
+            'article-title'
+          ).innerText =
+            'حدث خطأ';
+
+
+          document.getElementById(
+            'article-content'
+          ).innerHTML =
+            '<p>تعذر تحميل المقال حالياً.</p>';
+
+        }
+
       }
-    });
+
+    );
+
   </script>
+
+
+  <!-- =========================
+       نسخ رابط المقال
+  ========================== -->
+
+  <script>
+
+    const copyButton =
+      document.getElementById(
+        'copyArticleLink'
+      );
+
+
+    copyButton.addEventListener(
+      'click',
+      async function () {
+
+        const articleUrl =
+          window.location.href;
+
+
+        try {
+
+          /* =========================
+             الطريقة الحديثة
+          ========================== */
+
+          if (
+            navigator.clipboard &&
+            window.isSecureContext
+          ) {
+
+            await navigator.clipboard.writeText(
+              articleUrl
+            );
+
+          }
+
+
+          /* =========================
+             الطريقة الاحتياطية
+          ========================== */
+
+          else {
+
+            const textarea =
+              document.createElement(
+                'textarea'
+              );
+
+
+            textarea.value =
+              articleUrl;
+
+
+            textarea.style.position =
+              'fixed';
+
+            textarea.style.left =
+              '-9999px';
+
+            textarea.style.top =
+              '-9999px';
+
+
+            document.body.appendChild(
+              textarea
+            );
+
+
+            textarea.focus();
+
+            textarea.select();
+
+
+            const copied =
+              document.execCommand(
+                'copy'
+              );
+
+
+            document.body.removeChild(
+              textarea
+            );
+
+
+            if (!copied) {
+
+              throw new Error(
+                'Copy failed'
+              );
+
+            }
+
+          }
+
+
+          /* =========================
+             رسالة النجاح
+          ========================== */
+
+          copyButton.innerHTML =
+            '✅ تم نسخ رابط المقال';
+
+
+          copyButton.classList.add(
+            'success'
+          );
+
+
+          setTimeout(
+            function () {
+
+              copyButton.innerHTML =
+                '🔗 نسخ رابط المقال';
+
+
+              copyButton.classList.remove(
+                'success'
+              );
+
+            },
+            2000
+          );
+
+
+        }
+
+        /* =========================
+           إذا فشل النسخ
+        ========================== */
+
+        catch (error) {
+
+          console.error(
+            'Copy error:',
+            error
+          );
+
+
+          copyButton.innerHTML =
+            '❌ تعذر نسخ الرابط';
+
+
+          copyButton.classList.add(
+            'error'
+          );
+
+
+          setTimeout(
+            function () {
+
+              copyButton.innerHTML =
+                '🔗 نسخ رابط المقال';
+
+
+              copyButton.classList.remove(
+                'error'
+              );
+
+            },
+            2500
+          );
+
+        }
+
+      }
+
+    );
+
+  </script>
+
+
 </body>
+
 </html>
